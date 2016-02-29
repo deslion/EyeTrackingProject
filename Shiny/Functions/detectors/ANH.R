@@ -3,10 +3,6 @@ ANH <- function(t, x, y, settings) {
   screenDist     <- settings$screenDistance
   screenDim      <- settings$screenSize
   screenSize     <- settings$screenResolution
-  # Возможно, стоит убрать фильтр из настроек
-  filter         <- settings$filter
-  filterOrder    <- settings$filterOrder
-  # -----------------------------------------
   maxSaccadeVel  <- settings$maxSaccadeVel
   maxSaccadeAcc  <- settings$maxSaccadeAcc
   minSaccadeDur  <- settings$minSaccadeDur

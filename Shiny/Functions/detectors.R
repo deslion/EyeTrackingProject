@@ -1,6 +1,10 @@
-source("detectors/ANH.R", local = T)
-source("detectors/IDT.R", local = T)
-source("detectors/IVT.R", local = T)
+# source("E:/GitHub/EyeTrackingProject/Shiny/Functions/detectors/ANH.R", local = T)
+# source("E:/GitHub/EyeTrackingProject/Shiny/Functions/detectors/IDT.R", local = T)
+# source("E:/GitHub/EyeTrackingProject/Shiny/Functions/detectors/IVT.R", local = T)
+
+source("Functions/detectors/ANH.R", local = T)
+source("Functions/detectors/IDT.R", local = T)
+source("Functions/detectors/IVT.R", local = T)
 
 createDetector <- function(id, name, description, fun, settings)
 {

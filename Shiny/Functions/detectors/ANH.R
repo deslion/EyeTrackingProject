@@ -1,6 +1,6 @@
 ANH <- function(t, x, y, settings) {
   # Чтение настроек
-  screenDist     <- settings$screenDist
+  screenDist     <- settings$screenDistance
   screenDim      <- settings$screenSize
   screenSize     <- settings$screenResolution
   # Возможно, стоит убрать фильтр из настроек
@@ -79,7 +79,8 @@ ANH <- function(t, x, y, settings) {
   STon <- getThreshold(vel$vels[which(rawEvM==filterOkMarker)],3)
  
   print("CHKPNT 4")
-  
+  print(paste(peaks))
+  print(paste("Peaks len:", length(peaks), "; STon:",STon))
   
   leftmost_peaks <- peaks[seq(1,length(peaks),2)]
   onsets <- c()
@@ -98,7 +99,7 @@ ANH <- function(t, x, y, settings) {
     }
   }
   
-  
+  print(paste("onsets:", paste(onsets[1:10])))
   print("CHKPNT 5")
   
   

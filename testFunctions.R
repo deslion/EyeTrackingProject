@@ -1,4 +1,5 @@
-setwd("F:/Институт/Проекты/EyeTrackingPackage/Git/EyeTrackingProject/Shiny")
+maindir <- "E:/GitHub/EyeTrackingProject/"
+setwd(paste(maindir, "Shiny", sep =""))
 source("Functions\\miscFunctions.R", local = T)
 source("Functions\\dataLoaders.R", local = T)
 source("Classes\\optionsAndSettingsClasses.R", local = T)
@@ -23,7 +24,7 @@ source("Methods\\Methods_v_1_7.R", local = T)
 library(data.table)
 library(signal)
 rawSett <- new(Class = "ReadSettings")
-folder <- "F:/Институт/Проекты/EyeTrackingPackage/Data/TestData"
+folder <- paste(maindir, "TestData", sep = "")
 records <- new(Class = "RawDataRecords")
 loader <- createLoader(name = "Standard Loader", fun = createRawDataRec, 
                        settings = list(rawSettings = rawSett))
@@ -88,6 +89,12 @@ detectors <- list(ids = c(1, 2, 3),
                                                                                      MaxTBetFix = 0.075,
                                                                                      MaxDistBetFix = 0.5,
                                                                                      minFixLen = 0.05,
+                                                                                     maxSaccadeVel    = 1000, # deg/s (all args for ANH are set to recommended values)
+                                                                                     maxSaccadeAcc    = 100000, # deg/s^2
+                                                                                     minSaccadeDur    = 10000, #10000, # microseconds
+                                                                                     minFixationDur   = 40000, # microseconds
+                                                                                     PT0              = 100, # deg/s
+                                                                                     tolerance        = 1, # deg/s
                                                                                      maxGapLen = 0.07,
                                                                                      maxVel = 1000,
                                                                                      maxAccel = 1000000,

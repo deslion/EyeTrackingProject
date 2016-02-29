@@ -259,6 +259,32 @@ getXAxisOrientation <- function(data, settings)
               info = list(orientXAxis = "Orientation of an event (saccade, glissade or smooth pursuit) with respect to X axis")))
 }
 
+## Area covered by points
+## no settings
+pointsArea <- function(data, settings) {
+  ## maybe in settings we can send points type
+  x <- data$porx; y <- data$pory
+  geron <- function(x,y) {
+    if ((length(x)!=length(y))|(length(x)!=3))
+      stop("Wrong number of vertexes.")
+    a <- sqrt((x[2]-x[1])^2+(y[2]-y[1])^2)
+    b <- sqrt((x[3]-x[2])^2+(y[3]-y[2])^2)
+    c <- sqrt((x[1]-x[3])^2+(y[1]-y[3])^2)
+    p <- (a+b+c)/2
+    return(sqrt(p*(p-a)*(p-b)*(p-c)))
+  }
+  area <- 0
+  shape <- chull(x,y)
+  x <- x[shape]; y <- y[shape]  
+  len <- length(x)
+  if (len<3) area <- NA else {
+    for (i in 2:(len-1))
+      area <- area + geron(x[c(1,i,i+1)],y[c(1,i,i+1)])
+  }
+  return(list(vals = list(coveredArea = as.numeric(area)),
+              info = list(coveredArea = "Area covered by points")))
+}
+
 # AOI EVENTS' ANALYSIS FUNCTIONS DEFINITIONS SECTION
 
 # FRAME EVENTS' ANALYSIS FUNCTIONS DEFINITIONS SECTION

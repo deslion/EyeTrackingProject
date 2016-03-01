@@ -14,17 +14,6 @@ ANH <- function(t, x, y, settings) {
   
   filterMarkers <- settings$filterMarkers
   
-  filterOkMarker <- 1
-  filterGapMarker <- 2
-  filterArtMarker <- 3
-  
-  fixMarker <- 1
-  sacMarker <- 2
-  gliMarker <- 3
-  smpMarker <- 4
-  gapMarker <- 5
-  artMarker <- 6
-  
   size <- length(t)
   vel <- calcVel(t, x, y, settings)
   windowSize <- as.integer(minFixationDur/mean(vel$dts))

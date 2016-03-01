@@ -1,19 +1,7 @@
 IVT <- function(t, x, y, settings)
 {
   filterMarkers <- settings$filterMarkers
-  
-  filterOkMarker <- 1
-  filterGapMarker <- 2
-  filterArtMarker <- 3
-  
-  fixMarker <- 1
-  sacMarker <- 2
-  gliMarker <- 3
-  smpMarker <- 4
-  gapMarker <- 5
-  artMarker <- 6
-  bliMarker <- 7
-  
+
   VT <- settings$VT
   angular <- settings$angular
   screenDist <- settings$screenDistance
@@ -48,9 +36,15 @@ IVT <- function(t, x, y, settings)
       x <- angPos$xAng
       y <- angPos$yAng
     }
-    events <- data.frame(t = t[1:length(accels)], x = x[1:length(accels)], y = y[1:length(accels)], 
-                         dls = vel$dists[1:length(accels)], dts = vel$dts[1:length(accels)], vel = vel$vels[1:length(accels)], accel = accels, 
-                         evm = rawEventMarkers, gr = group)
+    events <- data.frame(t = t[1:length(accels)], 
+                         x = x[1:length(accels)], 
+                         y = y[1:length(accels)], 
+                         dls = vel$dists[1:length(accels)], 
+                         dts = vel$dts[1:length(accels)], 
+                         vel = vel$vels[1:length(accels)], 
+                         accel = accels, 
+                         evm = rawEventMarkers, 
+                         gr = group)
     eventGroups <- split(events, group)
     
     print("In PP")

@@ -1,5 +1,3 @@
-# maindir <- "E:/GitHub/EyeTrackingProject/"
-# 
 # source("Functions\\miscFunctions.R", local = T)
 # source("Functions\\dataLoaders.R", local = T)
 # source("Classes\\optionsAndSettingsClasses.R", local = T)
@@ -77,31 +75,31 @@ detectors <- list(ids = c(1, 2, 3),
                                                                                screenResolution = conditions@conditions$screenResolution, 
                                                                                interpolate = F)),
                                    standardDetector = createDetector(id = 3, name = "Standard", fun = coreDetector,description = "Test Detector",
-                                                                     settings = list(subfun = IDT,
-                                                                                     postProcess = F,
-                                                                                     VT = 15,
-                                                                                     velType = "analytical",
-                                                                                     sampleRate = 500,
-                                                                                     fl = 33,
-                                                                                     angular = T,
-                                                                                     durationThreshold = 30,
+                                                                     settings = list(subfun              = IDT,
+                                                                                     postProcess         = F,
+                                                                                     VT                  = 15,
+                                                                                     velType             = "analytical",
+                                                                                     sampleRate          = 500,
+                                                                                     fl                  = 33,
+                                                                                     angular             = T,
+                                                                                     durationThreshold   = 30,
                                                                                      dispersionThreshold = 0.5,
-                                                                                     screenDistance = 100,
-                                                                                     screenResolution = c(1280, 1024),
-                                                                                     screenSize = c(33.7, 27),
-                                                                                     MaxTBetFix = 0.075,
-                                                                                     MaxDistBetFix = 0.5,
-                                                                                     minFixLen = 0.05,
-                                                                                     maxSaccadeVel    = 1000, # deg/s (all args for ANH are set to recommended values)
-                                                                                     maxSaccadeAcc    = 100000, # deg/s^2
-                                                                                     minSaccadeDur    = 10000, #10000, # microseconds
-                                                                                     minFixationDur   = 40000, # microseconds
-                                                                                     PT0              = 100, # deg/s
-                                                                                     tolerance        = 1, # deg/s
-                                                                                     maxGapLen = 0.07,
-                                                                                     maxVel = 1000,
-                                                                                     maxAccel = 1000000,
-                                                                                     classifyGaps = F))
+                                                                                     screenDistance      = 100,
+                                                                                     screenResolution    = c(1280, 1024),
+                                                                                     screenSize          = c(33.7, 27),
+                                                                                     MaxTBetFix          = 0.075,
+                                                                                     MaxDistBetFix       = 0.5,
+                                                                                     minFixLen           = 0.05,
+                                                                                     maxSaccadeVel       = 1000, # deg/s (all args for ANH are set to recommended values)
+                                                                                     maxSaccadeAcc       = 100000, # deg/s^2
+                                                                                     minSaccadeDur       = 10000, #10000, # microseconds
+                                                                                     minFixationDur      = 40000, # microseconds
+                                                                                     PT0                 = 100, # deg/s
+                                                                                     tolerance           = 1, # deg/s
+                                                                                     maxGapLen           = 0.07,
+                                                                                     maxVel              = 1000,
+                                                                                     maxAccel            = 1000000,
+                                                                                     classifyGaps        = F))
                   )
 )
 

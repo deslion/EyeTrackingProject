@@ -21,9 +21,9 @@ source("Shiny\\Functions\\eventAnalyzersNew.R", local = T)
 source("Shiny\\Functions\\estimatorsNew.R", local = T)
 source("Shiny\\Functions\\DataRecordSubFunctions.R", local = T)
 source("Shiny\\Functions\\GeneralEventSubFunctions.R", local = T)
-source("Shiny\\CoreSubFunctionsInit.R", local = T)
 source("Shiny\\Functions\\eventAnalyzersNew.R", local = T)
 source("Shiny\\Methods\\Methods_v_1_7.R", local = T)
+source("Shiny\\CoreSubFunctionsInit.R", local = T)
 ## Some troubles with loading eventSelector
 # source("Shiny\\Functions\\eventSelector.R", local = T)
 
@@ -32,5 +32,17 @@ library(grDevices)
 library(data.table)
 library(signal)
 
-## Variables
+## Constants
 maindir <- ""
+### filterMarkers
+filterOkMarker <- 1
+filterGapMarker <- 2
+filterArtMarker <- 3
+### detectorMarkers
+fixMarker <- 1
+sacMarker <- 2
+gliMarker <- 3
+smpMarker <- 4
+gapMarker <- 5
+artMarker <- 6
+bliMarker <- 7

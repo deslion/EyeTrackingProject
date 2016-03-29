@@ -14,12 +14,10 @@ IVT <- function(t, x, y, settings)
   accels <- vel$accels
   
   # 2. Classification stage: getting raw event markers
-#   evm <- new(Class = "EventMarkers")
   gapMarkers <- ifelse(filterMarkers != filterOkMarker, gapMarker, filterOkMarker)
   rawEventMarkers <- ifelse(gapMarkers[1:length(accels)] == gapMarker, gapMarker, ifelse(vel$vels[1:length(accels)] <= VT, fixMarker, sacMarker))
   eventMarkers <- rawEventMarkers
   group <- markersGroups(eventMarkers)
-  print("before PP")
 
   if (postProcess)
   {
@@ -30,12 +28,7 @@ IVT <- function(t, x, y, settings)
     maxGapLen <- settings$maxGapLen 
     maxVel <- settings$maxVel
     maxAccel <- settings$maxAccel
-    if (angular)
-    {
-      angPos <- calcAngPos(x, y, screenDist, screenResolution, screenSize)
-      x <- angPos$xAng
-      y <- angPos$yAng
-    }
+    
     events <- data.frame(t = t[1:length(accels)], 
                          x = x[1:length(accels)], 
                          y = y[1:length(accels)], 
@@ -46,10 +39,6 @@ IVT <- function(t, x, y, settings)
                          evm = rawEventMarkers, 
                          gr = group)
     eventGroups <- split(events, group)
-    
-    print("In PP")
-    print(nrow(events))
-    print(length(eventGroups))
     
     fixationGroups <- list()
     saccadeGroups <- list()
@@ -269,6 +258,5 @@ IVT <- function(t, x, y, settings)
     }
     eventMarkers <- unlist(eventMarkersGroups)
   }
-#   eventMarkers <- append(eventMarkers, c(markerNames$gap, markerNames$gap))
   return(list(eventMarkers = eventMarkers, eventGroups = group))
 }
